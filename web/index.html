@@ -15,8 +15,17 @@
 <meta property="og:image:alt" content="Screens of six FM-1 firmwares running in the emulator: X0X, FM1 Quest, AMB-1, FM-1 SID, ORBIT and FiMba-1">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:,">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FM-1">
+<meta name="theme-color" content="#18191b">
 <link rel="stylesheet" href="style.css">
-<script>if (new URLSearchParams(location.search).get("embed") === "1") document.documentElement.setAttribute("data-embed", "");</script>
+<script>if (new URLSearchParams(location.search).get("embed") === "1") document.documentElement.setAttribute("data-embed", "");
+// opened from the home screen (or ?app=1, to try it in a tab): style.css shows the device and its controls only
+if (navigator.standalone || matchMedia("(display-mode: standalone)").matches || new URLSearchParams(location.search).get("app") === "1") document.documentElement.setAttribute("data-app", "");</script>
 </head>
 <body>
 <header class="site">
