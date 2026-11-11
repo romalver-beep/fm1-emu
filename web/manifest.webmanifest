@@ -1,0 +1,14 @@
+{
+  "name": "FM-1 Emulator",
+  "short_name": "FM-1",
+  "description": "The M-VAVE FM-1 pocket synth emulated in the browser, running SLOOP.",
+  "start_url": "./?fw=sloop&mhz=100",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#18191b",
+  "theme_color": "#18191b",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

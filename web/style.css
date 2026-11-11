@@ -214,5 +214,30 @@ section li { margin: 4px 0; }
 [data-embed] .box { padding: 10px 12px; flex-direction: row; flex-wrap: wrap; gap: 8px 20px; }
 [data-embed] .box > label select { max-width: none; }
 
+/* touch: a long press on the synth neither selects text nor raises the callout (iOS Safari
+   wants the -webkit- forms) */
+.stage, canvas, #start { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+                         -webkit-tap-highlight-color: transparent; }
+@media (hover: none) and (pointer: coarse) {
+  .deck { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+}
+
+/* opened from the home screen (data-app: the inline script in <head>): the device first, its
+   controls under it with finger-sized targets, the site's pages hidden. The status line above
+   the synth stays: the canvas takes every touch, so that line is where a finger scrolls the page. */
+[data-app] body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; overscroll-behavior: none; }
+[data-app] header.site, [data-app] footer.site, [data-app] main > :not(.player), [data-app] #title,
+[data-app] .hint { display: none; }
+[data-app] main { gap: 12px; padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right))
+                  max(12px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left)); }
+[data-app] .player { gap: 10px; }
+[data-app] .deck { gap: 6px; }
+[data-app] .deck-head { min-height: 24px; align-items: center; }
+[data-app] .side { flex-basis: 100%; }
+[data-app] .side select, [data-app] .side button, [data-app] .side .file { min-height: 44px; font-size: 16px; }
+@media (orientation: landscape) and (max-height: 560px) {
+  [data-app] canvas { height: calc(100svh - 46px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+}
+
 /* (an element the page hides stays hidden whatever its display rule) */
 [hidden] { display: none !important; }
